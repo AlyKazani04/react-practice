@@ -1,6 +1,3 @@
-import React from 'react';
-
-const App = () => {
 import { useEffect, useState } from 'react';
 import Search from './components/search';
 import Spinner from './components/Spinner.jsx';
