@@ -11,7 +11,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://AlyKazani04.github.io/react-practice",
+  "homepage": "https://alyKazani04.github.io/react-practice",
   "dependencies": {
     "@tailwindcss/vite": "^4.3.2",
     "react": "^19.2.7",
