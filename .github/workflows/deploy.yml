@@ -27,6 +27,8 @@ jobs:
         run: npm run build
         env:
           VITE_TMDB_API_KEY: ${{ secrets.VITE_TMDB_API_KEY }}
+          VITE_NEON_DATABASE_AUTH_URL: ${{ secrets.VITE_NEON_DATABASE_AUTH_URL }}
+          VITE_NEON_DATABASE_API_URL: ${{ secrets.VITE_NEON_DATABASE_API_URL }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
