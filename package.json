@@ -13,6 +13,7 @@
   },
   "homepage": "https://alyKazani04.github.io/react-practice",
   "dependencies": {
+    "@neondatabase/neon-js": "^0.6.2-beta",
     "@tailwindcss/vite": "^4.3.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
