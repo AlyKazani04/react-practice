@@ -43,4 +43,4 @@ jobs:
           folder: ./movie-finder/dist
           branch: gh-pages
           # clean: false
-          target: movie-finder
+          target-folder: movie-finder
