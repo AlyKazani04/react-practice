@@ -1,0 +1,45 @@
+name: Deploy MovieFinder to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main 
+    paths:
+      - 'movie-finder/**'
+
+permissions:
+  contents: write 
+
+jobs:
+  deploy_movie_finder:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./movie-finder
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: ./movie-finder/package-lock.json
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Project
+        run: npm run build
+        env:
+          VITE_TMDB_API_KEY: ${{ secrets.VITE_TMDB_API_KEY }}
+          VITE_NEON_DATABASE_AUTH_URL: ${{ secrets.VITE_NEON_DATABASE_AUTH_URL }}
+          VITE_NEON_DATABASE_API_URL: ${{ secrets.VITE_NEON_DATABASE_API_URL }}
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./movie-finder/dist
+          branch: gh-pages
+          clean: false
